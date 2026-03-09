@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Right Roll Solutions - Job Application</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/apaarlogo.jpg" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+  <style>
+    .job-application-section {
+      padding: 60px 0;
+      background: #f0f0e8;
+      min-height: 100vh;
+    }
+
+    .job-form-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background: #3d4f7c;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .job-form-header {
+      background: #2c3e6b;
+      padding: 30px;
+      text-align: center;
+      border-bottom: 4px solid #c5a335;
+    }
+
+    .job-form-header h2 {
+      color: #c5a335;
+      font-family: 'Georgia', serif;
+      font-style: italic;
+      font-size: 32px;
+      margin: 0;
+    }
+
+    .job-form-body {
+      padding: 30px 40px;
+    }
+
+    .form-section-title {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      margin-bottom: 25px;
+      margin-top: 30px;
+    }
+
+    .form-section-title:first-child {
+      margin-top: 0;
+    }
+
+    .form-group-custom {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      gap: 15px;
+    }
+
+    .form-group-custom label {
+      color: #fff;
+      font-weight: 600;
+      min-width: 140px;
+      padding-top: 8px;
+      font-size: 14px;
+    }
+
+    .form-group-custom label .required {
+      color: #ff4444;
+      margin-left: 2px;
+    }
+
+    .form-group-custom .form-input-wrapper {
+      flex: 1;
+    }
+
+    .form-group-custom input[type="text"],
+    .form-group-custom input[type="email"],
+    .form-group-custom input[type="tel"],
+    .form-group-custom input[type="date"],
+    .form-group-custom input[type="file"],
+    .form-group-custom select,
+    .form-group-custom textarea {
+      width: 100%;
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      font-size: 14px;
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+
+    .form-group-custom input:focus,
+    .form-group-custom select:focus,
+    .form-group-custom textarea:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.25);
+      border-bottom-color: #c5a335;
+    }
+
+    .form-group-custom select option {
+      background: #3d4f7c;
+      color: #fff;
+    }
+
+    .form-group-custom textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-group-custom input::placeholder,
+    .form-group-custom textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form-sub-label {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 11px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    .name-row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .name-row .form-input-half {
+      flex: 1;
+    }
+
+    .address-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .address-grid .address-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .gender-options {
+      display: flex;
+      gap: 25px;
+      padding-top: 8px;
+    }
+
+    .gender-options label {
+      color: #fff;
+      font-weight: 400;
+      min-width: auto;
+      padding-top: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .gender-options input[type="radio"] {
+      width: auto;
+      accent-color: #c5a335;
+    }
+
+    .file-upload-wrapper {
+      border: 2px dashed rgba(255, 255, 255, 0.4);
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .file-upload-wrapper:hover {
+      border-color: #c5a335;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .file-upload-wrapper input[type="file"] {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .file-upload-wrapper .upload-icon {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .file-upload-wrapper .upload-text {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 13px;
+    }
+
+    .submit-wrapper {
+      text-align: center;
+      margin-top: 35px;
+      padding-bottom: 10px;
+    }
+
+    .btn-apply {
+      background: #c5a335;
+      color: #2c3e6b;
+      border: none;
+      padding: 12px 50px;
+      font-size: 16px;
+      font-weight: 700;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-apply:hover {
+      background: #d4b445;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(197, 163, 53, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .form-group-custom {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .form-group-custom label {
+        min-width: auto;
+        padding-top: 0;
+      }
+
+      .name-row {
+        flex-direction: column;
+      }
+
+      .address-grid .address-row-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .job-form-body {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="icons">
+
+    <a href="https://www.instagram.com/ApaarSoftware/" class="instagram"> <i class="fab fa-instagram"></i><small>
+        Instagram</small></a>
+    <a href="https://www.facebook.com/ApaarSoftware" class="facebook"> <i class="fab fa-facebook"></i><small>
+        Facebook</small></a>
+    <a href="https://api.whatsapp.com/send/?phone=7842001257&text&type=phone_number&app_absent=0" class="whatsapp"><i
+        class="fab fa-whatsapp"></i><small> Whatsapp</small></a>
+    <a href="https://www.linkedin.com/company/apaarsoftware/" class="linkedin"> <i class="fab fa-linkedin"></i><small>
+        linkedin</small></a>
+  </div>
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-envelope d-flex align-items-center"><a
+            href="mailto:contact@example.com">rightrollsolutions@gmail.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4"><span>(+91) 85001 50986</span></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://www.facebook.com/ApaarSoftware" class="facebookk"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/ApaarSoftware/" class="instagramm"><i class="bi bi-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/apaarsoftware/" class="linkedinn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://api.whatsapp.com/send/?phone=7842001257&text&type=phone_number&app_absent=0"
+          class="whatsappp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo"><a href="index.html">Right Roll Solutions<span>.</span></a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="index.html">Home</a></li>
+          <li class="dropdown"><a href="services.html"><span>Services</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="software-development.html">Software Development</a></li>
+              <li><a href="it-staffing.html">IT Staffing</a></li>
+              <li><a href="job-consultancy.html">Job Consultancy</a></li>
+              <li><a href="digital-Marketing.html">Digital Marketing</a></li>
+            </a>
+            <li><a href="recruitment-consultancy.html">Recruitment Consultancy</a></li>
+            </ul>
+            <li class="dropdown"><a href="our-product.html"><span>Our Products</span> <i class="bi bi-chevron-down"></i>
+            </a>
+            <ul>
+              <li><a href="online-product-catalogue.html">Online Product Catalogue</a> </li>
+              <li><a href="bulk-whatsapp-messenger.html">Bulk Whatsapp Messenger</a> </li>
+            </ul>
+            </li>
+          <li><a class="nav-link scrollto active" href="job-application.html">Job Application</a></li>
+          <li><a class="nav-link scrollto" href="contact.html">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+
+  <!-- ======= Job Application Form ======= -->
+  <section class="job-application-section">
+    <div class="container">
+      <div class="job-form-container">
+        <div class="job-form-header">
+          <h2>Job Application</h2>
+        </div>
+        <div class="job-form-body">
+          <form id="jobApplicationForm" onsubmit="submitForm(event)">
+
+            <!-- Personal Information -->
+            <h3 class="form-section-title">Personal Information</h3>
+
+            <div class="form-group-custom">
+              <label>Full name <span class="required">*</span></label>
+              <div class="form-input-wrapper">
+                <div class="name-row">
+                  <div class="form-input-half">
+                    <input type="text" name="first_name" required placeholder="">
+                    <span class="form-sub-label">First</span>
+                  </div>
+                  <div class="form-input-half">
+                    <input type="text" name="last_name" required placeholder="">
+                    <span class="form-sub-label">Last</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Date of birth <span class="required">*</span></label>
+              <div class="form-input-wrapper">
+                <input type="date" name="date_of_birth" required>
+                <span class="form-sub-label">dd-MMM-yyyy</span>
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Gender <span class="required">*</span></label>
+              <div class="form-input-wrapper">
+                <div class="gender-options">
+                  <label><input type="radio" name="gender" value="Male" required> Male</label>
+                  <label><input type="radio" name="gender" value="Female"> Female</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Education</label>
+              <div class="form-input-wrapper">
+                <select name="education">
+                  <option value="">-- Select --</option>
+                  <option value="High School">High School</option>
+                  <option value="Diploma">Diploma</option>
+                  <option value="Bachelor's Degree">Bachelor's Degree</option>
+                  <option value="Master's Degree">Master's Degree</option>
+                  <option value="PhD">PhD</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Resume <span class="required">*</span></label>
+              <div class="form-input-wrapper">
+                <div class="file-upload-wrapper">
+                  <div class="upload-icon"><i class="bi bi-cloud-arrow-up"></i></div>
+                  <input type="file" name="attachment" accept=".pdf,.doc,.docx" required>
+                  <div class="upload-text">Choose File (PDF, DOC, DOCX)</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Address -->
+            <div class="form-group-custom">
+              <label>Address</label>
+              <div class="form-input-wrapper">
+                <div class="address-grid">
+                  <div>
+                    <input type="text" name="street_address" placeholder="">
+                    <span class="form-sub-label">Street Address</span>
+                  </div>
+                  <div>
+                    <input type="text" name="address_line_2" placeholder="">
+                    <span class="form-sub-label">Address Line 2</span>
+                  </div>
+                  <div class="address-row-2">
+                    <div>
+                      <input type="text" name="city" placeholder="">
+                      <span class="form-sub-label">City</span>
+                    </div>
+                    <div>
+                      <input type="text" name="state" placeholder="">
+                      <span class="form-sub-label">State/Region/Province</span>
+                    </div>
+                  </div>
+                  <div class="address-row-2">
+                    <div>
+                      <input type="text" name="postal_code" placeholder="">
+                      <span class="form-sub-label">Postal / Zip Code</span>
+                    </div>
+                    <div>
+                      <select name="country">
+                        <option value="">-- Select --</option>
+                        <option value="India" selected>India</option>
+                        <option value="United States">United States</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Other">Other</option>
+                      </select>
+                      <span class="form-sub-label">Country</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Email <span class="required">*</span></label>
+              <div class="form-input-wrapper">
+                <input type="email" name="email" required placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Phone</label>
+              <div class="form-input-wrapper">
+                <input type="tel" name="phone" placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Leisure interests</label>
+              <div class="form-input-wrapper">
+                <textarea name="leisure_interests" placeholder=""></textarea>
+              </div>
+            </div>
+
+            <!-- Previous/Current Employment Details -->
+            <h3 class="form-section-title">Previous/Current Employment Details</h3>
+
+            <div class="form-group-custom">
+              <label>Company name</label>
+              <div class="form-input-wrapper">
+                <input type="text" name="company_name" placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Date of joining</label>
+              <div class="form-input-wrapper">
+                <input type="date" name="date_of_joining">
+                <span class="form-sub-label">dd-MMM-yyyy</span>
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Date of leaving</label>
+              <div class="form-input-wrapper">
+                <input type="date" name="date_of_leaving">
+                <span class="form-sub-label">dd-MMM-yyyy</span>
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Designation</label>
+              <div class="form-input-wrapper">
+                <input type="text" name="designation" placeholder="">
+              </div>
+            </div>
+
+            <!-- Reference #1 -->
+            <h3 class="form-section-title">Reference #1</h3>
+
+            <div class="form-group-custom">
+              <label>Name <span class="required">*</span></label>
+              <div class="form-input-wrapper">
+                <div class="name-row">
+                  <div class="form-input-half">
+                    <input type="text" name="ref1_first_name" required placeholder="">
+                    <span class="form-sub-label">First</span>
+                  </div>
+                  <div class="form-input-half">
+                    <input type="text" name="ref1_last_name" required placeholder="">
+                    <span class="form-sub-label">Last</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Email <span class="required">*</span></label>
+              <div class="form-input-wrapper">
+                <input type="email" name="ref1_email" required placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Phone</label>
+              <div class="form-input-wrapper">
+                <input type="tel" name="ref1_phone" placeholder="">
+              </div>
+            </div>
+
+            <!-- Reference #2 -->
+            <h3 class="form-section-title">Reference #2</h3>
+
+            <div class="form-group-custom">
+              <label>Name <span class="required">*</span></label>
+              <div class="form-input-wrapper">
+                <div class="name-row">
+                  <div class="form-input-half">
+                    <input type="text" name="ref2_first_name" required placeholder="">
+                    <span class="form-sub-label">First</span>
+                  </div>
+                  <div class="form-input-half">
+                    <input type="text" name="ref2_last_name" required placeholder="">
+                    <span class="form-sub-label">Last</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Email <span class="required">*</span></label>
+              <div class="form-input-wrapper">
+                <input type="email" name="ref2_email" required placeholder="">
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label>Phone</label>
+              <div class="form-input-wrapper">
+                <input type="tel" name="ref2_phone" placeholder="">
+              </div>
+            </div>
+
+            <div class="submit-wrapper">
+              <button type="submit" class="btn-apply">Apply</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Job Application Section -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top ">
+      <section id="about" class="about section-bg">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-3 col-md-3 footer-contact">
+              <h3>Right Roll Solutions<span>.</span></h3>
+              <p>
+                Sanjeeva Reddy Nagar Community X road, <br>
+                Hyderabad - 500038,<br>
+                Telangana, India.<br><br>
+                <strong>Phone:</strong> (+91) 85001 50986<br>
+                <strong>Email:</strong> rightrollsolutions@gmail.com<br>
+              </p>
+            </div>
+
+            <div class="col-lg-5 col-md-6 footer-links">
+              <div class="container text-center">
+                <div class="row">
+                  <h4 class="column"><u>Useful Links</u></h4>
+                  <div class="col">
+                    <ul>
+                      <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="services.html">Services</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="software-development.html">Software
+                          Development</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="it-staffing.html">IT Staffing</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="job-consultancy.html">Job Consultancy</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="digital-marketing.html">Digital Marketing</a></li>
+                    </ul>
+                  </div>
+                  <div class="col">
+                    <ul>
+                      <li><i class="bx bx-chevron-right"></i> <a href="recruitment-consultancy.html">Recruitment
+                          Consultancy</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="our-product.html">Our Products</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="online-product-catalogue.html">Online Product Catalogue</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="bulk-whatsapp-messenger.html">Bulk Whatsapp Messenger</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="job-application.html">Job Application</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Contact Us</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-3 footer-links">
+              <h4>Our Social Networks</h4>
+              <div class="social-links mt-3">
+                <a href="https://www.facebook.com/ApaarSoftware" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="https://www.instagram.com/ApaarSoftware/" class="instagram"><i
+                    class="bx bxl-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/apaarsoftware/" class="linkedin"><i
+                    class="bx bxl-linkedin"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=7842001257&text&type=phone_number&app_absent=0"
+                  class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+              </div>
+
+              <img src="assets/img/WhatsApp Image 2023-05-27 at 12.57.05 PM.jpeg" class="bni" alt="">
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="container py-4">
+      <div class="copyright">
+        Copyright @ 2023 <strong><span>APAAR</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMrJRvZAn77ZeWI5HijYu2lH0-u_k09xFqHqLszthF3DqGvk4YgAiDQezmL6F95Ajc/exec';
+
+    async function submitForm(e) {
+      e.preventDefault();
+      const form = document.getElementById('jobApplicationForm');
+      const submitBtn = form.querySelector('.btn-apply');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      try {
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => {
+          if (key !== 'attachment') data[key] = value;
+        });
+
+        // Handle resume file - convert to base64
+        const fileInput = form.querySelector('input[type="file"]');
+        if (fileInput.files.length > 0) {
+          const file = fileInput.files[0];
+          data.resume_name = file.name;
+          data.resume_type = file.type;
+          data.resume_base64 = await fileToBase64(file);
+        }
+
+        const response = await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        // Show success message
+        const formContainer = document.querySelector('.job-form-body');
+        formContainer.innerHTML = '<div style="text-align:center; padding:60px 20px;"><i class="bi bi-check-circle" style="font-size:80px; color:#c5a335;"></i><h3 style="color:#fff; margin-top:20px;">Application Submitted Successfully!</h3><p style="color:rgba(255,255,255,0.7); margin-top:15px;">Thank you for applying. We will review your application and get back to you soon.</p><a href="job-application.html" style="display:inline-block; margin-top:25px; background:#c5a335; color:#2c3e6b; padding:10px 30px; border-radius:25px; text-decoration:none; font-weight:600;">Submit Another Application</a></div>';
+      } catch (error) {
+        alert('Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Apply';
+      }
+    }
+
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
+      });
+    }
+  </script>
+
+</body>
+
+</html>
