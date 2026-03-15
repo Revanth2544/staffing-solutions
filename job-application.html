@@ -349,7 +349,11 @@
           <h2>Job Application</h2>
         </div>
         <div class="job-form-body">
-          <form id="jobApplicationForm" onsubmit="submitForm(event)">
+          <form action="https://formsubmit.co/Sainojuraghu005@gmail.com" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="New Job Application - Right Roll Solutions">
+            <input type="hidden" name="_captcha" value="true">
+            <input type="hidden" name="_next" value="https://revanth2544.github.io/staffing-solutions/job-application.html?submitted=true">
+            <input type="hidden" name="_template" value="table">
 
             <!-- Personal Information -->
             <h3 class="form-section-title">Personal Information</h3>
@@ -685,56 +689,10 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    // IMPORTANT: Replace this URL with your deployed Google Apps Script Web App URL
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXBQQhmzoxIEuqGY3_ija_hfPrWLluUgj6NF-EUcsrlrY3Nm_-X3E_vUBJpL4F-Np6pg/exec';
-
-    async function submitForm(e) {
-      e.preventDefault();
-      const form = document.getElementById('jobApplicationForm');
-      const submitBtn = form.querySelector('.btn-apply');
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting...';
-
-      try {
-        const formData = new FormData(form);
-        const data = {};
-        formData.forEach((value, key) => {
-          if (key !== 'attachment') data[key] = value;
-        });
-
-        // Handle resume file - convert to base64
-        const fileInput = form.querySelector('input[type="file"]');
-        if (fileInput.files.length > 0) {
-          const file = fileInput.files[0];
-          data.resume_name = file.name;
-          data.resume_type = file.type;
-          data.resume_base64 = await fileToBase64(file);
-        }
-
-        const response = await fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-
-        // Show success message
-        const formContainer = document.querySelector('.job-form-body');
-        formContainer.innerHTML = '<div style="text-align:center; padding:60px 20px;"><i class="bi bi-check-circle" style="font-size:80px; color:#c5a335;"></i><h3 style="color:#fff; margin-top:20px;">Application Submitted Successfully!</h3><p style="color:rgba(255,255,255,0.7); margin-top:15px;">Thank you for applying. We will review your application and get back to you soon.</p><a href="job-application.html" style="display:inline-block; margin-top:25px; background:#c5a335; color:#2c3e6b; padding:10px 30px; border-radius:25px; text-decoration:none; font-weight:600;">Submit Another Application</a></div>';
-      } catch (error) {
-        alert('Something went wrong. Please try again.');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Apply';
-      }
-    }
-
-    function fileToBase64(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result.split(',')[1]);
-        reader.onerror = error => reject(error);
-      });
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+      const formContainer = document.querySelector('.job-form-body');
+      formContainer.innerHTML = '<div style="text-align:center; padding:60px 20px;"><i class="bi bi-check-circle" style="font-size:80px; color:#c5a335;"></i><h3 style="color:#fff; margin-top:20px;">Application Submitted Successfully!</h3><p style="color:rgba(255,255,255,0.7); margin-top:15px;">Thank you for applying. We will review your application and get back to you soon.</p><a href="job-application.html" style="display:inline-block; margin-top:25px; background:#c5a335; color:#2c3e6b; padding:10px 30px; border-radius:25px; text-decoration:none; font-weight:600;">Submit Another Application</a></div>';
     }
   </script>
 
