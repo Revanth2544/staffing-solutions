@@ -76,9 +76,7 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo"><a href="index.html">Right Roll&nbsp; Solutions<span>.</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+      <a href="index.html" class="logo"><img src="assets/img/rightroll-logo.png" alt="Right Roll Solutions" style="max-height: 50px;"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -270,49 +268,229 @@
   </section>
   <!-- End About Section -->
 
-  <!-- ======= Job Posting Section ======= -->
-  <section id="job-posting" style="padding: 40px 0; background: linear-gradient(135deg, #1a2a5e 0%, #2c3e6b 50%, #3d5a99 100%);">
+  <!-- ======= Job Posting Carousel Section ======= -->
+  <style>
+    .job-carousel-section { padding: 40px 0; background: linear-gradient(135deg, #1a2a5e 0%, #2c3e6b 50%, #3d5a99 100%); }
+    .job-carousel-wrapper { max-width: 750px; margin: 0 auto; position: relative; }
+    .job-carousel-track { display: flex; transition: transform 0.6s ease-in-out; }
+    .job-slide { min-width: 100%; box-sizing: border-box; }
+    .job-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.25); }
+    .job-card-header { background: linear-gradient(90deg, #c5a335 0%, #d4b84a 100%); padding: 20px 30px; text-align: center; }
+    .job-card-header h2 { color: #1a2a5e; margin: 0; font-size: 24px; font-weight: 800; letter-spacing: 1px; }
+    .job-card-body { padding: 28px 32px; }
+    .job-badge { display: inline-block; background: #1a2a5e; color: #fff; padding: 8px 28px; border-radius: 25px; font-size: 16px; font-weight: 700; }
+    .job-info-grid { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 22px; }
+    .job-info-card { flex: 1; min-width: 240px; background: #f0f4ff; border-radius: 12px; padding: 18px; border-left: 4px solid #c5a335; }
+    .job-info-card h4 { color: #1a2a5e; margin: 0 0 8px; font-size: 16px; font-weight: 700; }
+    .job-info-card p { margin: 0 0 5px; color: #333; font-size: 13px; }
+    .job-info-card .salary { margin: 0; color: #1a2a5e; font-size: 17px; font-weight: 800; }
+    .job-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 22px; }
+    .job-tag { background: #e8f0fe; color: #1a2a5e; padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+    .job-apply-area { text-align: center; padding: 8px 0 4px; }
+    .job-apply-area p { color: #555; font-size: 14px; margin-bottom: 12px; font-weight: 500; }
+    .btn-apply-now { display: inline-block; background: linear-gradient(90deg, #c5a335, #d4b84a); color: #1a2a5e; padding: 12px 45px; border-radius: 30px; font-size: 16px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(197,163,53,0.4); transition: all 0.3s; }
+    .btn-apply-now:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(197,163,53,0.5); }
+    .job-carousel-dots { text-align: center; margin-top: 18px; }
+    .job-carousel-dots .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.4); margin: 0 5px; cursor: pointer; transition: background 0.3s; }
+    .job-carousel-dots .dot.active { background: #c5a335; }
+    .job-carousel-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; background: rgba(255,255,255,0.2); border: none; border-radius: 50%; color: #fff; font-size: 20px; cursor: pointer; z-index: 2; display: flex; align-items: center; justify-content: center; transition: background 0.3s; }
+    .job-carousel-nav:hover { background: rgba(255,255,255,0.4); }
+    .job-carousel-nav.prev { left: -50px; }
+    .job-carousel-nav.next { right: -50px; }
+    @media (max-width: 850px) { .job-carousel-nav.prev { left: 5px; } .job-carousel-nav.next { right: 5px; } }
+    .job-details-list { list-style: none; padding: 0; margin: 0 0 15px; }
+    .job-details-list li { color: #333; font-size: 13px; margin-bottom: 6px; padding-left: 18px; position: relative; }
+    .job-details-list li::before { content: '✓'; color: #c5a335; font-weight: bold; position: absolute; left: 0; }
+  </style>
+  <section id="job-posting" class="job-carousel-section">
     <div class="container" data-aos="fade-up">
-      <div style="max-width: 750px; margin: 0 auto; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.25);">
-        <div style="background: linear-gradient(90deg, #c5a335 0%, #d4b84a 100%); padding: 20px 30px; text-align: center;">
-          <h2 style="color: #1a2a5e; margin: 0; font-size: 26px; font-weight: 800; letter-spacing: 1px;">TECH M IS HIRING FRESHERS &amp; EXPERIENCED</h2>
+      <div class="job-carousel-wrapper">
+        <button class="job-carousel-nav prev" onclick="moveJobSlide(-1)"><i class="bi bi-chevron-left"></i></button>
+        <button class="job-carousel-nav next" onclick="moveJobSlide(1)"><i class="bi bi-chevron-right"></i></button>
+        <div style="overflow: hidden; border-radius: 16px;">
+          <div class="job-carousel-track" id="jobCarouselTrack">
+
+            <!-- Slide 1: Tech M -->
+            <div class="job-slide">
+              <div class="job-card">
+                <div class="job-card-header">
+                  <h2>TECH M IS HIRING FRESHERS &amp; EXPERIENCED</h2>
+                </div>
+                <div class="job-card-body">
+                  <div style="text-align: center; margin-bottom: 22px;">
+                    <span class="job-badge">VOICE PROCESS &mdash; DAY SHIFT</span>
+                  </div>
+                  <div class="job-info-grid">
+                    <div class="job-info-card">
+                      <h4>For Freshers</h4>
+                      <p><strong>Eligibility:</strong> Any 10+2, Any Grad, Any Post Grad</p>
+                      <p>With Good Communication</p>
+                      <p class="salary">CTC: 3.5 LPA</p>
+                    </div>
+                    <div class="job-info-card">
+                      <h4>For Experienced</h4>
+                      <p><strong>Eligibility:</strong> Any 10+2, 10+3, Grad, P.Grad</p>
+                      <p>Min 1 year into International Non-Voice eligible &#9989;</p>
+                      <p>Domestic not eligible &#10060;</p>
+                      <p class="salary">CTC: 4.5 LPA</p>
+                    </div>
+                  </div>
+                  <div class="job-tags">
+                    <span class="job-tag">5 Days Working</span>
+                    <span class="job-tag">2 Fixed Week Offs</span>
+                    <span class="job-tag">Full-Time</span>
+                    <span class="job-tag">Work From Office</span>
+                    <span class="job-tag">2 Way Transportation</span>
+                    <span class="job-tag">3 Rounds Of Interview</span>
+                  </div>
+                  <div class="job-apply-area">
+                    <p>Interested? Share your CV by applying below</p>
+                    <a href="job-application.html" class="btn-apply-now">Apply Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Amazon Voice Process -->
+            <div class="job-slide">
+              <div class="job-card">
+                <div class="job-card-header">
+                  <h2>AMAZON &mdash; VOICE PROCESS (WORK FROM OFFICE)</h2>
+                </div>
+                <div class="job-card-body">
+                  <div style="text-align: center; margin-bottom: 22px;">
+                    <span class="job-badge">HYDERABAD &mdash; NIGHT SHIFT</span>
+                  </div>
+                  <div class="job-info-grid">
+                    <div class="job-info-card">
+                      <h4>Desired Candidate Profile</h4>
+                      <ul class="job-details-list">
+                        <li>Minimum qualification: 10+2, Any Graduate / PG</li>
+                        <li>Freshers can apply; BPO experience is an edge</li>
+                        <li>Excellent English communication is mandatory</li>
+                        <li>Comfortable with Night Shifts &amp; flexible week offs</li>
+                      </ul>
+                    </div>
+                    <div class="job-info-card">
+                      <h4>Compensation &amp; Benefits</h4>
+                      <p class="salary">Salary: &#8377;3,85,000 &ndash; &#8377;4,56,750 LPA</p>
+                      <ul class="job-details-list" style="margin-top:8px;">
+                        <li>Zeta Meal Card &ndash; &#8377;1,100/month (&#8377;13,200 PA)</li>
+                        <li>Health Insurance up to &#8377;5.0 Lacs</li>
+                        <li>Night Shift Allowance &ndash; &#8377;150/shift</li>
+                        <li>Overtime Allowance as per business requirement</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="job-tags">
+                    <span class="job-tag">5-Day Working</span>
+                    <span class="job-tag">2 Consecutive Days Off</span>
+                    <span class="job-tag">Full-Time</span>
+                    <span class="job-tag">Work From Office</span>
+                    <span class="job-tag">Night Shift</span>
+                  </div>
+                  <div class="job-apply-area">
+                    <p>Be a part of Earth's Most Customer Centric Company</p>
+                    <a href="job-application.html" class="btn-apply-now">Apply Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: International Voice / Quality Analysis -->
+            <div class="job-slide">
+              <div class="job-card">
+                <div class="job-card-header">
+                  <h2>INTERNATIONAL VOICE PROCESS &mdash; HYDERABAD</h2>
+                </div>
+                <div class="job-card-body">
+                  <div style="text-align: center; margin-bottom: 22px;">
+                    <span class="job-badge">NIGHT SHIFT &mdash; WORK FROM OFFICE</span>
+                  </div>
+                  <div class="job-info-grid">
+                    <div class="job-info-card">
+                      <h4>Roles &amp; Responsibilities</h4>
+                      <ul class="job-details-list">
+                        <li>Handle inbound calls for international customers</li>
+                        <li>Resolve customer queries effectively via voice</li>
+                        <li>Deliver excellent service with clear communication</li>
+                        <li>Ensure first-call resolution &amp; customer satisfaction</li>
+                      </ul>
+                    </div>
+                    <div class="job-info-card">
+                      <h4>Required Skills &amp; Qualifications</h4>
+                      <ul class="job-details-list">
+                        <li>Excellent English communication skills</li>
+                        <li>HSC, Undergraduates, Graduates &amp; Postgraduates</li>
+                        <li>Freshers &amp; Experienced (relevant) eligible</li>
+                        <li>B.Tech / M.Tech / MCA are NOT eligible</li>
+                        <li>Must not be pursuing regular education</li>
+                        <li>Immediate joiners preferred</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="job-tags">
+                    <span class="job-tag">5 Days Working</span>
+                    <span class="job-tag">2 Days Week Off</span>
+                    <span class="job-tag">Night Shifts (UK Timing)</span>
+                    <span class="job-tag">Work From Office</span>
+                    <span class="job-tag">3 Rounds: HR, VNA, Ops</span>
+                  </div>
+                  <div class="job-apply-area">
+                    <p>Interested? Share your CV by applying below</p>
+                    <a href="job-application.html" class="btn-apply-now">Apply Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div style="padding: 30px 35px;">
-          <div style="text-align: center; margin-bottom: 25px;">
-            <span style="display: inline-block; background: #1a2a5e; color: #fff; padding: 8px 28px; border-radius: 25px; font-size: 18px; font-weight: 700;">VOICE PROCESS &mdash; DAY SHIFT</span>
-          </div>
-          <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 25px;">
-            <div style="flex: 1; min-width: 250px; background: #f0f4ff; border-radius: 12px; padding: 20px; border-left: 4px solid #c5a335;">
-              <h4 style="color: #1a2a5e; margin: 0 0 10px; font-size: 17px; font-weight: 700;">For Freshers</h4>
-              <p style="margin: 0 0 6px; color: #333; font-size: 14px;"><strong>Eligibility:</strong> Any 10+2, Any Grad, Any Post Grad</p>
-              <p style="margin: 0 0 6px; color: #333; font-size: 14px;">With Good Communication</p>
-              <p style="margin: 0; color: #1a2a5e; font-size: 18px; font-weight: 800;">CTC: 3.5 LPA</p>
-            </div>
-            <div style="flex: 1; min-width: 250px; background: #f0f4ff; border-radius: 12px; padding: 20px; border-left: 4px solid #c5a335;">
-              <h4 style="color: #1a2a5e; margin: 0 0 10px; font-size: 17px; font-weight: 700;">For Experienced</h4>
-              <p style="margin: 0 0 6px; color: #333; font-size: 14px;"><strong>Eligibility:</strong> Any 10+2, 10+3, Grad, P.Grad</p>
-              <p style="margin: 0 0 6px; color: #333; font-size: 14px;">Min 1 year into International Non-Voice eligible &#9989;</p>
-              <p style="margin: 0 0 6px; color: #333; font-size: 14px;">Domestic not eligible &#10060;</p>
-              <p style="margin: 0; color: #1a2a5e; font-size: 18px; font-weight: 800;">CTC: 4.5 LPA</p>
-            </div>
-          </div>
-          <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 25px;">
-            <span style="background: #e8f0fe; color: #1a2a5e; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600;">5 Days Working</span>
-            <span style="background: #e8f0fe; color: #1a2a5e; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600;">2 Fixed Week Offs</span>
-            <span style="background: #e8f0fe; color: #1a2a5e; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600;">Full-Time</span>
-            <span style="background: #e8f0fe; color: #1a2a5e; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600;">Work From Office</span>
-            <span style="background: #e8f0fe; color: #1a2a5e; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600;">2 Way Transportation</span>
-            <span style="background: #e8f0fe; color: #1a2a5e; padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 600;">3 Rounds Of Interview</span>
-          </div>
-          <div style="text-align: center; padding: 10px 0 5px;">
-            <p style="color: #555; font-size: 15px; margin-bottom: 15px; font-weight: 500;">Interested? Share your CV by applying below</p>
-            <a href="job-application.html" style="display: inline-block; background: linear-gradient(90deg, #c5a335, #d4b84a); color: #1a2a5e; padding: 14px 50px; border-radius: 30px; font-size: 17px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 15px rgba(197,163,53,0.4); transition: all 0.3s;">Apply Now</a>
-          </div>
+        <div class="job-carousel-dots" id="jobCarouselDots">
+          <span class="dot active" onclick="goToJobSlide(0)"></span>
+          <span class="dot" onclick="goToJobSlide(1)"></span>
+          <span class="dot" onclick="goToJobSlide(2)"></span>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Job Posting Section -->
+  <script>
+    (function() {
+      let currentJobSlide = 0;
+      const totalSlides = 3;
+      const track = document.getElementById('jobCarouselTrack');
+      const dots = document.querySelectorAll('#jobCarouselDots .dot');
+      let autoSlideInterval;
+
+      function updateSlide() {
+        track.style.transform = 'translateX(-' + (currentJobSlide * 100) + '%)';
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === currentJobSlide); });
+      }
+
+      window.moveJobSlide = function(dir) {
+        currentJobSlide = (currentJobSlide + dir + totalSlides) % totalSlides;
+        updateSlide();
+        resetAutoSlide();
+      };
+
+      window.goToJobSlide = function(idx) {
+        currentJobSlide = idx;
+        updateSlide();
+        resetAutoSlide();
+      };
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(function() {
+          currentJobSlide = (currentJobSlide + 1) % totalSlides;
+          updateSlide();
+        }, 5000);
+      }
+
+      resetAutoSlide();
+    })();
+  </script>
+  <!-- End Job Posting Carousel Section -->
 
   <!-- ======= Services Section ======= -->
   <section id="about" class="about section-bg">
